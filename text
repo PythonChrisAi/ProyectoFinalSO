@@ -5,4 +5,18 @@
     ProxyPassReverse / http://127.0.0.1:5000/
 </VirtualHost>
 
+[Unit]
+Description=Flask App
+After=network.target
+
+[Service]
+User=student
+WorkingDirectory=/home/student/ProyectoFinalSO
+ExecStart=/home/student/ProyectoFinalSO/venv/bin/python app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
 
